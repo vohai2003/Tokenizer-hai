@@ -11,8 +11,8 @@ def build(path):
         full_corpus += file_data
         f.close()
     print("Size of corpus:",sys.getsizeof(full_corpus)/1024/1024,"MB")
-    full_corpus = re.sub("[^A-Za-z0-9,.?!:;\-—_ ]+","",full_corpus)
     full_corpus = full_corpus.replace("\n"," ")
     full_corpus = full_corpus.replace("\r"," ")
+    full_corpus = re.sub("[^A-Za-z0-9,.?!:;\-—_ ]+","",full_corpus)
     full_corpus = re.sub("\\s{2,}","",full_corpus)
     return full_corpus
